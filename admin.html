@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+   
+
+    <title>Content Management</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <h1>Content Management</h1>
+
+    <h2>Add New Service</h2>
+
+    <form id="service-form">
+
+        <label for="title">Service Title</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <button type="submit">Add Service</button>
+
+        <p id="form_response"></p>
+
+    </form>
+
+
+    <h2>Existing Services</h2>
+
+    <div id="services-list"></div>
+
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
