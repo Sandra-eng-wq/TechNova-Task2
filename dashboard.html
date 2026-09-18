@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Customer Dashboard</h1>
+
+        <a href="index.html">Home</a>
+
+    </header>
+
+
+    <main>
+
+        <div class="welcome">
+            <h2>Welcome to Your Dashboard</h2>
+            <p>Manage your account information from here.</p>
+        </div>
+
+
+        <section class="dashboard-card">
+
+            <h2>My Account</h2>
+
+            <div class="account-info">
+
+                <div class="info-box">
+                    <strong>Username</strong>
+                    <span id="username">Loading...</span>
+                </div>
+
+                <div class="info-box">
+                    <strong>Email</strong>
+                    <span id="email">Loading...</span>
+                </div>
+
+            </div>
+
+            <button id="edit-button">
+                Edit Information
+            </button>
+
+        </section>
+
+
+        <section class="dashboard-card" id="edit-section">
+
+            <h2>Edit My Information</h2>
+
+            <form id="edit-form">
+
+                <label for="edit-username">Username</label>
+
+                <input
+                    type="text"
+                    id="edit-username"
+                    required
+                >
+
+                <label for="edit-email">Email</label>
+
+                <input
+                    type="email"
+                    id="edit-email"
+                    required
+                >
+
+                <button type="submit">
+                    Save Changes
+                </button>
+
+                <p id="message"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

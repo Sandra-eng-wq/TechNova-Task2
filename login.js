@@ -1,3 +1,4 @@
+console.log("LOGIN JS IS WORKING");
 const form = document.getElementById("login-form");
 
 form.addEventListener("submit", async function(event) {
@@ -20,6 +21,7 @@ form.addEventListener("submit", async function(event) {
     console.log(data);
 
     try {
+        console.log("FETCH STARTED");
         const response = await fetch("http://localhost:3000/api/login", {
             method: "POST",
             headers: {
@@ -34,7 +36,7 @@ console.log(result);
         if (response.ok) {
             formMessage.textContent = "Login successful!";
             form.reset();
-           window.location.href="http://localhost:3000/";
+           window.location.href="http://localhost:3000/dashboard.html";
         } else {
             formMessage.textContent = result.error || "Something went wrong";
         }
