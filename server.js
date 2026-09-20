@@ -79,7 +79,7 @@ app.post("/api/contact", async (req, res) => {
 // SERVICES - CREATE
 // ====================
 
-app.post("/api/services", async (req, res) => {
+app.post("/api/services", requireAdmin, async (req, res) => {
 
     const { title, description } = req.body;
 
@@ -140,7 +140,7 @@ app.get("/api/services", async (req, res) => {
 // SERVICES - UPDATE
 // ====================
 
-app.put("/api/services/:id", async (req, res) => {
+app.put("/api/services/:id", requireAdmin, async (req, res) => {
 
     const { id } = req.params;
     const { title, description } = req.body;
@@ -184,7 +184,7 @@ app.put("/api/services/:id", async (req, res) => {
 // SERVICES - DELETE
 // ====================
 
-app.delete("/api/services/:id", async (req, res) => {
+app.delete("/api/services/:id", requireAdmin, async (req, res) => {
 
     const { id } = req.params;
 
@@ -318,7 +318,19 @@ function requireLogin(req, res, next) {
 
     next();
 }
-app.get("/admin.html", requireLogin, (req, res) => {
+function requireAdmin(req, res, next) {
+
+    if (req.session.username !== "sandra") {
+        return res.status(403).json({
+            error: "Access denied."
+        });
+    }
+
+    next();
+}
+
+
+app.get("/admin.html", requireAdmin, (req, res) => {
     res.sendFile(__dirname + "/admin.html");
 });
 // ===============================
