@@ -216,7 +216,7 @@ app.delete("/api/services/:id", requireAdmin, async (req, res) => {
         });
     }
 });
-
+//task4
 app.post("/api/register", async (req, res) => {
 
     const { username, email, password } = req.body;
@@ -318,6 +318,7 @@ function requireLogin(req, res, next) {
 
     next();
 }
+//we added these for task6
 function requireAdmin(req, res, next) {
 
     if (req.session.username !== "sandra") {
@@ -436,6 +437,116 @@ app.get("/dashboard.html", requireLogin, (req, res) => {
     res.sendFile(__dirname + "/dashboard.html");
 
 });
+
+
+
+app.post("/api/requests", requireLogin, async (req, res) => {
+
+    const { service, description } = req.body;
+
+    if (!service || !description) {
+        return res.status(400).json({
+            error: "Service and description are required."
+        });
+    }
+
+    try {
+
+        const result = await pool.query(
+            `INSERT INTO service_requests
+             (user_id, service, description)
+             VALUES ($1, $2, $3)
+             RETURNING *`,
+            [
+                req.session.userId,
+                service,
+                description
+            ]
+        );
+
+        res.status(201).json(result.rows[0]);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            error: "Something went wrong while submitting the request."
+        });
+
+    }
+});
+app.get("/api/requests", requireAdmin, async (req, res) => {
+
+    try {
+
+        const result = await pool.query(
+            `SELECT *
+             FROM service_requests
+             ORDER BY id DESC`
+        );
+
+        res.json(result.rows);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            error: "Something went wrong while loading requests."
+        });
+
+    }
+});
+app.put("/api/requests/:id", requireAdmin, async (req, res) => {
+
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const allowedStatuses = [
+        "Pending",
+        "In Progress",
+        "Completed",
+        "Rejected"
+    ];
+
+    if (!allowedStatuses.includes(status)) {
+        return res.status(400).json({
+            error: "Invalid status."
+        });
+    }
+
+    try {
+
+        const result = await pool.query(
+            `UPDATE service_requests
+             SET status = $1
+             WHERE id = $2
+             RETURNING *`,
+            [status, id]
+        );
+
+        if (result.rows.length === 0) {
+
+            return res.status(404).json({
+                error: "Request not found."
+            });
+
+        }
+
+        res.json(result.rows[0]);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            error: "Something went wrong while updating the request."
+        });
+
+    }
+});
+
 app.use(express.static("."));
 
 // ====================

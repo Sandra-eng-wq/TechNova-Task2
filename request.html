@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>service Request</title>
+        <link rel="stylesheet" href="request.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1> Submit a Service Request</h1>
+            <form id="request-form">
+                <label for="service">Service"</label>
+                 <select id="service">
+                     <option value="">Select a Service</option>
+                     <option value="Web Development">Web development</option>
+                     <option value="Mobile application">Mobile application</option>
+                     <option value="Database Management">Database Management</option>
+                     <option value="Technical Support">Technical Support</option>
+                     </select>
+                     <label for="description">Description</label>
+                     <textarea id="description" placeholder="Describe your request"
+                     rows="6"></textarea>
+                     <button type="Submit">Submit Request</button>
+                     <p id="message"></p>
+            </form>
+        </div>
+        <script src="request.js"></script>
+    </body>
+</html>

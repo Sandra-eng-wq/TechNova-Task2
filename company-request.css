@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dbeafe;
+    margin: 0;
+    padding: 40px;
+    color: #172554;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.request-card {
+    background-color: #eff6ff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border-left: 6px solid #1e3a8a;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.15);
+}
+
+.request-card h3 {
+    margin-top: 0;
+    color: #1e3a8a;
+    font-size: 21px;
+}
+
+.request-card p {
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.request-card strong {
+    color: #172554;
+}
+
+label {
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+select {
+    padding: 9px 12px;
+    margin-top: 10px;
+    border: 2px solid #93c5fd;
+    border-radius: 7px;
+    background-color: #dbeafe;
+    color: #172554;
+    font-size: 14px;
+}
+
+button {
+    padding: 9px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1e3a8a;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #172554;
+}
+
+#message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
