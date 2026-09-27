@@ -438,7 +438,7 @@ app.get("/dashboard.html", requireLogin, (req, res) => {
 
 });
 
-
+//task7
 
 app.post("/api/requests", requireLogin, async (req, res) => {
 
@@ -546,7 +546,79 @@ app.put("/api/requests/:id", requireAdmin, async (req, res) => {
 
     }
 });
+// TASK 8 - SEARCH AND FILTERING
 
+app.get("/api/request-search", requireAdmin, async (req, res) => {
+
+    const {
+        search = "",
+        status = "",
+        service = ""
+    } = req.query;
+
+    try {
+
+        let query = `
+            SELECT *
+            FROM service_requests
+            WHERE 1 = 1
+        `;
+
+        const values = [];
+
+        if (search) {
+
+            values.push(`%${search}%`);
+
+            query += `
+                AND (
+                    CAST(id AS TEXT) ILIKE $${values.length}
+                    OR CAST(user_id AS TEXT) ILIKE $${values.length}
+                    OR service ILIKE $${values.length}
+                    OR description ILIKE $${values.length}
+                )
+            `;
+        }
+
+        if (status) {
+
+            values.push(status);
+
+            query += `
+                AND status = $${values.length}
+            `;
+        }
+
+        if (service) {
+
+            values.push(service);
+
+            query += `
+                AND service = $${values.length}
+            `;
+        }
+
+        query += `
+            ORDER BY id DESC
+        `;
+
+        const result = await pool.query(query, values);
+
+        res.json(result.rows);
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            error: "Something went wrong while searching requests."
+        });
+
+    }
+});
+app.get("/company-search.html", (req, res) => {
+    res.sendFile(__dirname + "/company-search.html");
+});
 app.use(express.static("."));
 
 // ====================

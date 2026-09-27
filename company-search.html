@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Customer Requests</title>
+
+    <link rel="stylesheet" href="company-search.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Search Customer Requests</h1>
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search by Request ID, User ID, Service, or Description"
+            >
+
+            <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+            <select id="service-filter">
+                <option value="">All Services</option>
+            </select>
+
+            <button id="search-button">
+                Search
+            </button>
+
+            <button id="clear-button">
+                Clear
+            </button>
+
+        </div>
+
+        <div id="results-container"></div>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script src="company-search.js"></script>
+
+</body>
+
+</html>
