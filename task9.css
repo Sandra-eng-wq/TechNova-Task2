@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dbeafe;
+    margin: 0;
+    padding: 40px;
+    color: #172554;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+form,
+.profile,
+.data-section {
+    background-color: #eff6ff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.15);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 11px;
+    box-sizing: border-box;
+    border: 2px solid #93c5fd;
+    border-radius: 7px;
+    background-color: white;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 7px;
+    background-color: #1e3a8a;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background-color: #172554;
+}
+
+a {
+    display: block;
+    text-align: center;
+    color: #132580;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.user-card {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #1e3a8a;
+}
+
+.user-card h3 {
+    color: #1e3a8a;
+    margin-top: 0;
+}
+
+.user-card p {
+    margin: 8px 0;
+}
+
+#message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}

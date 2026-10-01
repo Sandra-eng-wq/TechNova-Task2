@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Administrator Dashboard</title>
+
+    <link rel="stylesheet" href="./task9.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Administrator Dashboard</h1>
+
+
+        <div class="profile">
+
+            <h2>Administrator Information</h2>
+
+            <p>
+                <strong>Username:</strong>
+                <span id="username">Loading...</span>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <span id="email">Loading...</span>
+            </p>
+
+            <p>
+                <strong>Role:</strong>
+                <span id="role">Loading...</span>
+            </p>
+
+        </div>
+
+
+        <div class="data-section">
+
+            <h2>System Users</h2>
+            <table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+
+    <tbody id="users-body"></tbody>
+</table>
+
+            <div id="users-container"></div>
+
+            <p id="message"></p>
+
+        </div>
+
+
+        <button id="logout-button">
+            Logout
+        </button>
+
+    </div>
+
+
+    <script src="task9-admin.js"></script>
+
+</body>
+
+</html>
