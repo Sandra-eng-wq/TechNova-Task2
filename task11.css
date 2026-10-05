@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+select[multiple] {
+    min-height: 100px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #1f4e79;
+    color: white;
+}
+
+button.secondary {
+    background: #777;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#message,
+#dashboard-message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background: #fafafa;
+}
+
+.stat-card p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+.panel {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-card button {
+    margin-right: 8px;
+}
+
+.list-item {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
+}
+
+.list-item span {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.list-item button {
+    margin-left: 10px;
+}
+
+@media (max-width: 700px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar {
+        flex-direction: column;
+    }
+
+    .list-item span {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}

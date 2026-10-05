@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Management Dashboard</title>
+
+    <link rel="stylesheet" href="./task11.css">
+
+</head>
+
+<body>
+
+    <div class="container dashboard">
+
+        <div class="top-bar">
+
+            <div>
+                <h1>Project Management Dashboard</h1>
+
+                <p>
+                    Welcome,
+                    <strong id="current-username">
+                        Loading...
+                    </strong>
+                </p>
+
+                <p>
+                    Role:
+                    <strong id="current-role">
+                        Loading...
+                    </strong>
+                </p>
+            </div>
+
+            <button id="logout-button">
+                Logout
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <h3>Total Projects</h3>
+                <p id="total-projects">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>In Progress</h3>
+                <p id="in-progress-projects">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <p id="completed-projects">0</p>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             ADMIN SECTION
+        ========================== -->
+
+        <section id="admin-section" class="hidden">
+
+            <h2>Administrator Controls</h2>
+
+
+            <div class="panel">
+
+                <h3>Clients</h3>
+
+                <form id="client-form">
+
+                    <input
+                        type="hidden"
+                        id="client-id"
+                    >
+
+                    <label>Client Name</label>
+                    <input
+                        type="text"
+                        id="client-name"
+                        required
+                    >
+
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        id="client-email"
+                    >
+
+                    <label>Company</label>
+                    <input
+                        type="text"
+                        id="client-company"
+                    >
+
+                    <button type="submit">
+                        Save Client
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-client"
+                        class="secondary"
+                    >
+                        Cancel
+                    </button>
+
+                </form>
+
+                <div id="client-list"></div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>Create / Edit Project</h3>
+
+                <form id="project-form">
+
+                    <input
+                        type="hidden"
+                        id="project-id"
+                    >
+
+                    <label>Project Name</label>
+
+                    <input
+                        type="text"
+                        id="project-name"
+                        required
+                    >
+
+
+                    <label>Description</label>
+
+                    <textarea
+                        id="project-description"
+                        rows="4"
+                    ></textarea>
+
+
+                    <label>Status</label>
+
+                    <select id="project-status">
+
+                        <option value="Not Started">
+                            Not Started
+                        </option>
+
+                        <option value="In Progress">
+                            In Progress
+                        </option>
+
+                        <option value="Completed">
+                            Completed
+                        </option>
+
+                        <option value="On Hold">
+                            On Hold
+                        </option>
+
+                    </select>
+
+
+                    <label>Progress (%)</label>
+
+                    <input
+                        type="number"
+                        id="project-progress"
+                        min="0"
+                        max="100"
+                        value="0"
+                        required
+                    >
+
+
+                    <label>Client</label>
+
+                    <select id="project-client">
+
+                        <option value="">
+                            No Client
+                        </option>
+
+                    </select>
+
+
+                    <label>Assign Team Members</label>
+
+                    <select
+                        id="project-members"
+                        multiple
+                    ></select>
+
+
+                    <button type="submit">
+                        Save Project
+                    </button>
+
+                    <button
+                        type="button"
+                        id="cancel-project"
+                        class="secondary"
+                    >
+                        Cancel
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>Users</h3>
+
+                <div id="users-list"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section>
+
+            <h2>Projects</h2>
+
+            <div id="projects-list"></div>
+
+        </section>
+
+
+        <p id="dashboard-message"></p>
+
+    </div>
+
+    <script src="./task11-dashboard.js"></script>
+
+</body>
+</html>
