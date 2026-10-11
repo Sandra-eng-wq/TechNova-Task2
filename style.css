@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -78,7 +79,9 @@ nav a:hover {
     padding: 90px 8%;
     text-align: center;
     background-color: #dbeafe;
+  
 }
+    
 .about h2 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -94,10 +97,11 @@ nav a:hover {
     padding: 90px 8%;
     text-align: center;
     background-color: #dbeafe;
+   
 }
 .services h2 {
     font-size: 36px;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     color: #0f172a;
 }
 .service-container {
@@ -133,11 +137,12 @@ nav a:hover {
 }
 .contact h2 {
     font-size: 36px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #0f172a;
 }
 .contact > p {
     color: #64748b;
+    margin-bottom: 0px;
 }
 #contact-form {
     max-width: 450px;

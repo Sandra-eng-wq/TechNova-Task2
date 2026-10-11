@@ -8,7 +8,7 @@ CREATE TABLE inquiries (
 CREATE TABLE services (
  id SERIAL PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
-    description TEXT NOT NULL,
+    description TEXT NOT NULL
 );
 INSERT INTO services (title, description)
 VALUES
